@@ -22,9 +22,21 @@
   </div>
 </div>
 <hr />
+<div class="row">
+<i class="fa fa-calendar"></i>
+  <%= @event.next_event_occurrence_with_time[:time].strftime('%A, %B %d, %Y') %><br />
+  <%= @event.next_event_occurrence_with_time[:time].strftime('%l:%M %p') %> -
+  <%= @event.instance_end_time.strftime('%l:%M %p') %>
+</div>
+<hr />
 
+<% hangout_is_live = @hangout.try!(:live?) %>
+<div id="hg-management" class="hangouts-management-well">
+  <%= render partial: 'hangouts_management' %>
+</div>
 <div class="row">
   <p><%= @event.description %></p>
+  <p><a href="#">Learn more about Scrums</a></p>
 </div>
 
 <%= javascript_include_tag 'events.js' %>
