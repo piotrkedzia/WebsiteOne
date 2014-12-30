@@ -1,54 +1,30 @@
-<div class="col-lg-8 col-lg-offset-2">
-  <div class="event-details">
-    <h2><%= @event.name %></h2>
-  </div>
-  <div class="event-details-well">
-    <div class="event-details">
-      <div class="col-lg-8">
-        <small class="event-schedule"><%= @event.schedule %></small>
-      </div>
-      <div class="col-lg-4">
-        <% if @hangout.try!(:live?) %>
-          <a href="<%= @hangout.hangout_url %>" class="event-live-link">EVENT IS LIVE !<br/>CLICK TO JOIN</a>
-        <% else  %>
-          <a href="#" class="event-live-link disabled">NOT YET LIVE ...</a>
-        <% end  %>
-      </div>
-    </div>
-    <div class="event-details">
-      <div class="col-lg-12">
-        <p><strong><%= @event.description %></strong></p>
-      </div>
-    </div>
-  </div>
+<div class="row">
+  <h1><%= @event.name %></h1>
+</div>
 
-  <% if @event.schedule.present? %>
-    <div class="schedule-well">
-      <div class="row">
-        <h4 style="margin: 15px;">Upcoming schedule</h4>
-      </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <ul style="list-style: none; padding-left: 0">
-            <% @event_schedule.first(5).each do |e| %>
-              <li>
-                <%= current_occurrence_time(e) %> /
-                <p style='padding-left: 1em'><%= current_occurrence_local_time(e) %></p>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        <% if user_signed_in? %>
-          <div class="col-lg-4">
-            <%= link_to 'Edit schedule', edit_event_path(@event), :class => 'event-edit-schedule' %>
-          </div>
-        <% end  %>
-      </div>
+<hr />
+<div class="row">
+  <div class="col-xs-8">
+    <p>Event type: <%= @event.category %></p>
+  </div>
+  <div class="col-xs-4">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="actions-dropdown" data-toggle="dropdown">
+        Event Actions
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="actions-dropdown">
+        <li role="presentation">
+          <%= link_to 'Edit Event Details', edit_event_path(@event), role: 'menuitem', tabindex: '-1' %>
+        </li>
+      </ul>
     </div>
-  <% end %>
-
-  <div id="hg-management" class="hangouts-management-well">
-    <%= render partial: 'hangouts_management' %>
   </div>
 </div>
-<%=javascript_include_tag 'events.js' %>
+<hr />
+
+<div class="row">
+  <p><%= @event.description %></p>
+</div>
+
+<%= javascript_include_tag 'events.js' %>
