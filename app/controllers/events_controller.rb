@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @event_schedule = @event.next_occurrences
-    @hangout = @event.last_hangout
+    @recent_hangout = @event.recent_hangouts.first
     render partial: 'hangouts_management' if request.xhr?
   end
 

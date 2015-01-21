@@ -171,3 +171,13 @@
 .event-schedule {
   vertical-align: middle;
 }
+
+.event-notice {
+  border: 1px solid $theme-main;
+  border-radius: 3px;
+  padding: 20px;
+
+  a {
+    text-transform: uppercase;
+  }
+}
