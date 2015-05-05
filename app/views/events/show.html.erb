@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <h1><%= @event.name %></h1>
   </div>
-<!--
+  <!-- Old commit -->
   <div class="event-details-well">
     <div class="event-details">
       <div class="col-lg-8">
@@ -15,10 +15,16 @@
           <a href="#">NOT YET LIVE ...</a>
         <% end  %>
       </div>
--->
-</div>
-
+      </hr>
+<!-- Old commit -->
+    </div>
+  </div>
 <hr />
+<h1>Are you attending?</h1>
+<button type="button" class="btn btn-primary">Yes</button>
+<button type="button" class="btn btn-default">No</button>
+
+
 <div class="row">
   <div class="col-xs-6">
     <p>Event type: <%= @event.category %></p>
@@ -35,7 +41,6 @@
           <%= link_to 'Edit Event Details', edit_event_path(@event), role: 'menuitem', tabindex: '-1' %>
         </li>
       </ul>
->>>>>>> c29f79308204353a4d33b05dd5fc99236382ea93
     </div>
 
     <div class="btn-HOA pull-right">

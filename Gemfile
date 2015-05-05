@@ -104,4 +104,3 @@ group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm' # New Relic analytics
 end
-

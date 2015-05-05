@@ -113,3 +113,11 @@ Feature: Events
     And I am on Events index page
     Then I should see "Scrum"
     And I should see "Started at 7:00 UTC"
+
+  Scenario: I should see two attending buttons
+    Given I am logged in
+    And the date is "2014/02/01 09:15:00 UTC"
+    And I am on Events index page
+    And I click "Scrum"
+    Then I should see "Are you attending"
+

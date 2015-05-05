@@ -136,6 +136,7 @@ Feature: Manage Document
     And I am using the Mercury Editor to edit document "Howto"
     And I am focused on the "document body" within the Mercury Editor
     When I click on the "Insert Media" button within the Mercury Toolbar
+    Then I debug
     Then the Mercury Editor modal window should be visible
     When I fill in "URL" with "/assets/av-logo-inverse.png" within the Mercury Modal
     And I click "Insert Media" within the Mercury Editor Modal
