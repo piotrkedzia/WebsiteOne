@@ -29,3 +29,9 @@ this.EventsUtils = function() {
 };
 
 (new this.EventsUtils).init();
+
+$("a#see-more-dates").click(function(event) {
+  event.preventDefault();
+  $("div#upcoming-events").slideToggle();
+});
+

@@ -41,6 +41,8 @@ WebsiteOne::Application.routes.draw do
   resources :events, :format => false do
     member do
       patch :update_only_url
+      get :follow
+      get :unfollow
     end
   end
 

@@ -69,6 +69,22 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def follow
+    set_event
+    if current_user
+      current_user.follow(@event)
+      flash[:notice] = "You're going to attend this meeting"
+      redirect_to event_path(@event)
+    end
+  end
+
+  def unfollow
+    set_event
+    current_user.stop_following(@event)
+    flash[:notice] = "You aren't going to attend this meeting"
+    redirect_to event_path(@event)
+  end
+
   private
 
   def set_event
