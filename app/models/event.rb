@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  acts_as_followable
+
   include IceCube
   validates :name, :time_zone, :repeats, :category, :start_datetime, :duration, presence: true
   validates :url, uri: true, :allow_blank => true
